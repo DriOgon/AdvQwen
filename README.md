@@ -91,6 +91,42 @@
 
 更详细的数据集组织方式、字段说明和任务划分见 `DATASETS.md`。
 
+## 数据集获取
+
+本项目公开仓库不直接提供数据集文件。按照当前实验流程，建议按下面的来源准备数据：
+
+### 1. Flickr30K
+
+本项目当时使用的是 Hugging Face 上的 `nlphuji/flickr30k` 导出版本，并在本地进一步整理为标准检索格式：
+
+- 数据集页面：<https://huggingface.co/datasets/nlphuji/flickr30k>
+- 文件列表页：<https://huggingface.co/datasets/nlphuji/flickr30k/tree/main>
+
+### 2. MS COCO Karpathy
+
+本项目使用的是：
+
+- MS COCO 2014 官方图像数据：<https://cocodataset.org/#download>
+- Karpathy split 标注文件 `dataset_coco.json`：<https://github.com/Delphboy/karpathy-splits>
+
+在本地实验中，COCO 部分是由 COCO 2014 图像和 `dataset_coco.json` 共同整理得到的标准检索文件。
+
+### 3. CIFAR-10
+
+分类迁移评测中的 CIFAR-10 通过 `torchvision.datasets.CIFAR10` 读取。对应参考入口：
+
+- Torchvision 文档：<https://docs.pytorch.org/vision/master/generated/torchvision.datasets.CIFAR10.html>
+
+当前代码默认 `download=False`，因此需要你先把数据准备到 `data_std/cifar10` 对应位置，或自行修改为自动下载。
+
+### 4. ImageNet
+
+分类迁移评测中的 ImageNet 使用的是验证集目录结构。官方入口：
+
+- ImageNet 官方下载页：<https://www.image-net.org/download>
+
+ImageNet 通常需要注册并按官方方式申请下载。当前代码默认从 `data_std/imagenet` 读取本地验证集数据。
+
 ## 环境配置
 
 本项目默认复用官方 [`Qwen3-VL-Embedding`](https://github.com/QwenLM/Qwen3-VL-Embedding/) 仓库的运行环境，而不是单独维护一套完全独立的依赖。
