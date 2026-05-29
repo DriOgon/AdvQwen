@@ -1,0 +1,42 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Editor / notebook artifacts
+.ipynb_checkpoints/
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+
+# Experiment outputs and caches
+output/
+
+# Large local datasets and linked data roots
+data/
+data
+data_std/
+
+# Large binary artifacts
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.npy
+*.npz
+
+# Logs
+*.log
+
+# Internal thesis materials and deprecated code
+docs/
+legacy/
+builders/
+答辩演示命令.md
